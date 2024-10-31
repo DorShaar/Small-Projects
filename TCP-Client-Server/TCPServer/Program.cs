@@ -1,18 +1,20 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using TCPServerApp.Infra.Ioc;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using TCPServerApp.Infra;
 using TCPServerApp.Infra.Server;
 
 namespace TCPServerApp
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            using TCPServerServiceProvider serviceProvider = new TCPServerServiceProvider();
+            using TCPServerServiceProvider serviceProvider = new();
 
             TCPServer server = serviceProvider.GetRequiredService<TCPServer>();
 
-            server.Start().Wait();
+            await server.Run(CancellationToken.None).ConfigureAwait(false);
         }
     }
 }

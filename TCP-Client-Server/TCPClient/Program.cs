@@ -1,14 +1,18 @@
-﻿using TCPClientApp.Infra;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using TCPClient.IOC;
 
 namespace TCPClientApp
 {
-    public class Program
+    public static class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main()
         {
-            using TCPClient tcpClient = new TCPClient();
+            TcpClientServiceProvider clientServiceProvider = new();
 
-            tcpClient.Run().Wait();
+            TCPClient tcpClient = clientServiceProvider.GetRequiredService<TCPClient>();
+            await tcpClient.Run(CancellationToken.None).ConfigureAwait(false);
         }
     }
 }

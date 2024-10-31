@@ -2,12 +2,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using TCPServerApp.App.Requests;
-using TCPServerApp.Config;
-using TCPServerApp.Infra.Requests;
+using TCPServerApp.Settings;
 using TCPServerApp.Infra.Server;
 
-namespace TCPServerApp.Infra.Ioc
+namespace TCPServerApp.Infra
 {
     public class TCPServerServiceProvider : IServiceProvider, IDisposable
     {
@@ -20,10 +18,9 @@ namespace TCPServerApp.Infra.Ioc
 
         private ServiceProvider CreateServiceProvider()
         {
-            ServiceCollection serviceCollection = new ServiceCollection();
+            ServiceCollection serviceCollection = new();
 
-            serviceCollection.AddSingleton<IRequestHandler, RequestHandler>();
-            serviceCollection.AddSingleton(typeof(TCPServer));
+            serviceCollection.AddSingleton<TCPServer>();
 
             serviceCollection.AddLogging(builder =>
                 builder.AddConsole().SetMinimumLevel(LogLevel.Information));
@@ -35,14 +32,11 @@ namespace TCPServerApp.Infra.Ioc
 
         private void AddConfiguration(IServiceCollection services)
         {
-            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-
-            configurationBuilder.AddJsonFile("settings.json", optional: false);
-
+            ConfigurationBuilder configurationBuilder = new();
+            configurationBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             IConfiguration configuration = configurationBuilder.Build();
 
-            // Binds between IConfiguration to given configurtaion.
-            services.Configure<ServerOptions>(configuration);
+            services.Configure<TcpServerSettings>(configuration.GetSection("TcpServerSettings"));
             services.AddOptions();
         }
 
