@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    IEnumerable<dynamic>? results = ViewData["Results"] as IEnumerable<dynamic>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<hr />
+
+<div class="container mt-4">
+	<button class="btn btn-primary mb-3" id="toggleButton" onclick="toggleView()">
+        Show Table
+    </button>
+
+    <hr />
+
+	<div id="addFormSection">
+		<h2>Add New Employee, Department, and Project</h2>
+		<form asp-action="CreateEntities" method="post">
+			<h3>Employee</h3>
+			<div class="form-group">
+				<label for="employeeName">Name</label>
+				<input type="text" id="employeeName" name="EmployeeName" class="form-control" placeholder="Employee Name" required />
+			</div>
+
+			<h3>Department</h3>
+			<div class="form-group">
+				<label for="departmentName">Name</label>
+				<input type="text" id="departmentName" name="DepartmentName" class="form-control" placeholder="Department Name" required />
+			</div>
+
+			<h3>Project</h3>
+			<div class="form-group">
+				<label for="projectName">Name</label>
+				<input type="text" id="projectName" name="ProjectName" class="form-control" placeholder="Project Name" required />
+			</div>
+
+			<div class="form-group mt-3">
+				<button type="submit" class="btn btn-primary">Add Entities</button>
+			</div>
+		</form>
+	</div>
+	
+	<div id="tableSection" style="display: none;">
+        <h2>Employee and Project Table</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Project Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (results != null)
+                {
+                    foreach (dynamic item in results)
+                    {
+                        <tr>
+                            <td>@item.EmployeeId</td>
+                            <td>@item.EmployeeName</td>
+                            <td>@item.ProjectName</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No data available</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function toggleView() {
+        const addFormSection = document.getElementById('addFormSection');
+        const tableSection = document.getElementById('tableSection');
+        const toggleButton = document.getElementById('toggleButton');
+
+        if (addFormSection.style.display === 'none') {
+            addFormSection.style.display = 'block';
+            tableSection.style.display = 'none';
+            toggleButton.textContent = 'Show Table';
+        } else {
+            addFormSection.style.display = 'none';
+            tableSection.style.display = 'block';
+            toggleButton.textContent = 'Show Add Form';
+        }
+    }
+</script>
