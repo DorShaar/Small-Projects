@@ -1,4 +1,6 @@
-﻿@{
+﻿@using EmployeeManagmentSystem.DTOs
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     ViewData["Title"] = "Home Page";
     IEnumerable<dynamic>? results = ViewData["Results"] as IEnumerable<dynamic>;
 }
@@ -45,25 +47,31 @@
 	</div>
 	
 	<div id="tableSection" style="display: none;">
-        <h2>Employee and Project Table</h2>
         <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Employee ID</th>
-                    <th>Employee Name</th>
-                    <th>Project Name</th>
-                </tr>
-            </thead>
             <tbody>
                 @if (results != null)
                 {
-                    foreach (dynamic item in results)
+                    <h2>Employees Grouped by Department</h2>
+                    @foreach (DepartmentToEmployeesDTO departmentEmployeeDTO in results)
                     {
-                        <tr>
-                            <td>@item.EmployeeId</td>
-                            <td>@item.EmployeeName</td>
-                            <td>@item.ProjectName</td>
-                        </tr>
+                        <h3>Department: @departmentEmployeeDTO.DepartmentName</h3>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Employee Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (EmployeeDTO employee in departmentEmployeeDTO.Employees)
+                            {
+                                <tr>
+                                    <td>@employee.EmployeeId</td>
+                                    <td>@employee.EmployeeName</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
                     }
                 }
                 else

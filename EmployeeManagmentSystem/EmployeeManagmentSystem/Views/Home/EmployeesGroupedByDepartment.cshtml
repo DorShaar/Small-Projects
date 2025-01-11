@@ -1,0 +1,25 @@
+﻿@using EmployeeManagmentSystem.DTOs
+@model IEnumerable<EmployeeManagmentSystem.DTOs.DepartmentToEmployeesDTO>
+
+<h2>Employees Grouped by Department</h2>
+@foreach (DepartmentToEmployeesDTO departmentEmployeeDTO in Model)
+{
+    <h3>Department: @departmentEmployeeDTO.DepartmentName</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (EmployeeDTO employee in departmentEmployeeDTO.Employees)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.EmployeeName</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

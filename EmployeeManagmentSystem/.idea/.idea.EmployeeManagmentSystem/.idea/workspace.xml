@@ -10,19 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf0ac06-349a-4d9a-bbf2-a4aa070caf0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/DbHandlerBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/DepartmentDbHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeDbHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeProjectDbHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/ProjectDbHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Data/EmployeeManagementContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Data/Factories/EmployeeManagementContextFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/DepartmentModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeProjectModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/ProjectModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Scripts/db_migrations_commands.script" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/DepartmentEmployeeDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/EmployeeDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/EmployeesGroupedByDepartment.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeDbHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeDbHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +32,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e0feb9f3f204f70afe1cbcba56c5bd0b0938/88/1a54fbcb/IHtmlHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6a3c0eff52d47bc9182a7b28ea10bae381928/f2/8910adc1/IQueryable`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b7d7cb6609f8d85f36dfd4df6123c8060f4fd5e1699c5f959de6e918d7351/RazorPageOfT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/294078ecfce6fdb942ecfee089f09717de7a6fcfe5efd9fdb6f4f93c0fb4813/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8be3a835a33b22749161cd57a7225ef65e0c61c64c2bfd969e2e404130dd/Controller.cs" root0="FORCE_HIGHLIGHTING" />
@@ -120,31 +118,12 @@
       <option name="presentableId" value="Default" />
       <updated>1736426023190</updated>
       <workItem from="1736426025287" duration="1378000" />
-      <workItem from="1736427427909" duration="8242000" />
+      <workItem from="1736427427909" duration="15984000" />
     </task>
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs</url>
-          <line>57</line>
-          <properties documentPath="C:\Users\DorShaar\Dor\Personal\Projects\Small-Projects\EmployeeManagmentSystem\EmployeeManagmentSystem\Controllers\HomeController.cs" containingFunctionPresentation="Method 'Do'">
-            <startOffsets>
-              <option value="1801" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1865" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -2,6 +2,7 @@ using System.Diagnostics;
 using EmployeeManagementSystem.Data;
 using EmployeeManagementSystem.Models;
 using EmployeeManagmentSystem.DBHandler;
+using EmployeeManagmentSystem.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementSystem.Controllers;
@@ -36,30 +37,27 @@ public class HomeController : Controller
 	public async Task<IActionResult> Index()
 	{
 		// Fetch employee and project data
-		var employeeProjects = await _context.Employees
-											 .Include(e => e.Department)
-											 .SelectMany(e => _context.EmployeeProjects.Where(ep => ep.EmployeeId == e.Id)
-																	  .Join(_context.Projects, ep => ep.ProjectId, p => p.Id, (ep, p) => new
-																	  {
-																		  EmployeeId = e.Id,
-																		  EmployeeName = e.Name,
-																		  ProjectName = p.Name
-																	  }))
-											 .ToListAsync();
+		// IEnumerable<DepartmentToEmployeesDTO> employeeProjects = mEmployeeDbHandler.ListEmployeesByDepartment();
+		
+		// Fetch all 5 years employees.
+		IEnumerable<EmployeeDTO> employeeProjects = mEmployeeDbHandler.ListLongTimeEmployees();
 
-		ViewData["EmployeeProjects"] = employeeProjects;
+		ViewData["Results"] = employeeProjects;
 
 		return View();
 	}
 	
 	[HttpPost]
-	public async Task<IActionResult> CreateEntities(string projectName)
+	public async Task<IActionResult> CreateEntities(string employeeName)
 	{
-		// await CreateNewDepartment(departmentName).ConfigureAwait(false);
-		// await CreateNewEmployee(employeeName, 1).ConfigureAwait(false);
+		// string projectName
+		// string departmentName
+		// string employeeName
+		// await mDepartmentDbHandler.CreateNewDepartment(departmentName).ConfigureAwait(false);
+		await mEmployeeDbHandler.CreateNewEmployee(employeeName, 2).ConfigureAwait(false);
 		// await CreateNewProject(projectName).ConfigureAwait(false);
 
-		await mDb.SaveChanges();
+		await mDepartmentDbHandler.SaveChanges();
 
 		// Redirect to the index page after creation
 		return RedirectToAction("Index");

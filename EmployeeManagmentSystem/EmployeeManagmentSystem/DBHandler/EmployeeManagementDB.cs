@@ -6,11 +6,7 @@ namespace EmployeeManagmentSystem.DBHandler;
 public class EmployeeManagementDB
 {
 	/* TODO DOR implement and delete that class at the end.
-	 * List Employees in Each Department
-Fetch all employees grouped by their department, including department names.
-
-Employees with Long Tenure
-Retrieve employees who have been with the company for more than 5 years.
+	 
 
 Department Workload
 For each department, calculate the total hours worked by its employees on all projects.
