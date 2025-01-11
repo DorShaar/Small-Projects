@@ -10,15 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf0ac06-349a-4d9a-bbf2-a4aa070caf0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/DepartmentEmployeeDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/EmployeeDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/EmployeesGroupedByDepartment.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/Employees.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeDbHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeDbHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Migrations/EmployeeManagementContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Migrations/EmployeeManagementContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.EmployeeManagmentSystem: IIS Express.executor": "Run",
+    ".NET Launch Settings Profile.EmployeeManagmentSystem: IIS Express.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -118,12 +112,31 @@
       <option name="presentableId" value="Default" />
       <updated>1736426023190</updated>
       <workItem from="1736426025287" duration="1378000" />
-      <workItem from="1736427427909" duration="15984000" />
+      <workItem from="1736427427909" duration="16786000" />
     </task>
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs</url>
+          <line>44</line>
+          <properties documentPath="C:\Users\DorShaar\Dor\Personal\Projects\Small-Projects\EmployeeManagmentSystem\EmployeeManagmentSystem\Controllers\HomeController.cs" containingFunctionPresentation="Method 'Index'">
+            <startOffsets>
+              <option value="1448" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1487" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
