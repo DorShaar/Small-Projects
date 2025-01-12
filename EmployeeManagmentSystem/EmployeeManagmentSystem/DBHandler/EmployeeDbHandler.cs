@@ -63,4 +63,21 @@ public class EmployeeDbHandler : DbHandlerBase
 								   })
 					   .ToList();
 	}
+
+	/// <summary>
+	/// Find employees who are not assigned to any project.
+	/// </summary>
+	public IEnumerable<EmployeeDTO> ListEmployeesWithoutProjects()
+	{
+		return mContext.Employees
+					   .Where(employee => !mContext.EmployeeProjects.Any(employeeProject => employeeProject.EmployeeId == employee.Id))
+					   .Select(employee => new EmployeeDTO
+					   {
+						   EmployeeId = employee.Id,
+						   EmployeeName = employee.Name,
+						   DateOfJoining = employee.DateOfJoining,
+						   DepartmentName = employee.Department.Name
+					   })
+					   .ToList();
+	}
 }

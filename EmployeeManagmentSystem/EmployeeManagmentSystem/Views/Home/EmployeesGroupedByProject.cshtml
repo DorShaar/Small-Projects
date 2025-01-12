@@ -1,0 +1,25 @@
+﻿@using EmployeeManagmentSystem.DTOs
+@model IEnumerable<EmployeeManagmentSystem.DTOs.ProjectWithEmployeesWorkloadDTO>
+
+<h2>Employees Grouped by Project</h2>
+@foreach (ProjectWithEmployeesWorkloadDTO projectWithEmployeesWorkload in Model)
+{
+    <h3>Department: @projectWithEmployeesWorkload.ProjectName</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Total Hours</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (EmployeeProjectWorkloadDTO employeeProjectWorkload in projectWithEmployeesWorkload.EmployeesProjectWorkload)
+        {
+            <tr>
+                <td>@employeeProjectWorkload.EmployeeName</td>
+                <td>@employeeProjectWorkload.TotalHours</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

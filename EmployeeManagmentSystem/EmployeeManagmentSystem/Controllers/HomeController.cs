@@ -37,13 +37,24 @@ public class HomeController : Controller
 	public async Task<IActionResult> Index()
 	{
 		// Fetch employee and project data
-		// IEnumerable<DepartmentToEmployeesDTO> employeeProjects = mEmployeeDbHandler.ListEmployeesByDepartment();
+		// IEnumerable<DepartmentToEmployeesDTO> results = mEmployeeDbHandler.ListEmployeesByDepartment();
 		
 		// Fetch all 5 years employees.
-		IEnumerable<EmployeeDTO> employeeProjects = mEmployeeDbHandler.ListLongTimeEmployees();
+		// IEnumerable<EmployeeDTO> results = mEmployeeDbHandler.ListLongTimeEmployees();
+		
+		// For each department, calculate the total hours worked by its employees on all projects.
+		// IEnumerable<DepartmentTotalWorkloadDTO> results = mDepartmentDbHandler.CalculateTotalWorkloadsPerDepartment();
 
-		ViewData["Results"] = employeeProjects;
+		// List the top 3 projects with the highest total hours worked.
+		// IEnumerable<ProjectTotalWorkloadDTO> results = mProjectDbHandler.ListTopThreeHighestWorkloadProjects();
+		
+		// For each project, list employees who worked on it, along with the hours they contributed.
+		// IEnumerable<ProjectWithEmployeesWorkloadDTO> results = mProjectDbHandler.GetProjectsWithContributorsEmployees();
+		
+		// Find employees who are not assigned to any project.
+		IEnumerable<EmployeeDTO> results = mEmployeeDbHandler.ListEmployeesWithoutProjects();
 
+		ViewData["Results"] = results;
 		return View();
 	}
 	

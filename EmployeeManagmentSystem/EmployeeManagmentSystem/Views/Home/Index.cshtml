@@ -51,28 +51,28 @@
             <tbody>
                 @if (results != null)
                 {
-                    <h2>Employees</h2>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Employee ID</th>
-								<th>Employee Name</th>
-								<th>Date of Joining</th>
-								<th>Department Name</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach (EmployeeDTO employee in results)
-							{
-								<tr>
-									<td>@employee.EmployeeId</td>
-									<td>@employee.EmployeeName</td>
-									<td>@employee.DateOfJoining.ToShortDateString()</td>
-									<td>@employee.DepartmentName</td>
-								</tr>
-							}
-						</tbody>
-					</table>
+	                <h2>Employees</h2>
+	                <table class="table">
+		                <thead>
+		                <tr>
+			                <th>Employee ID</th>
+			                <th>Employee Name</th>
+			                <th>Date of Joining</th>
+			                <th>Department Name</th>
+		                </tr>
+		                </thead>
+		                <tbody>
+		                @foreach (EmployeeDTO employee in results)
+		                {
+			                <tr>
+				                <td>@employee.EmployeeId</td>
+				                <td>@employee.EmployeeName</td>
+				                <td>@employee.DateOfJoining.ToShortDateString()</td>
+				                <td>@employee.DepartmentName</td>
+			                </tr>
+		                }
+		                </tbody>
+	                </table>
                 }
                 else
                 {

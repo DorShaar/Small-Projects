@@ -1,0 +1,21 @@
+﻿@using EmployeeManagmentSystem.DTOs
+@model IEnumerable<EmployeeManagmentSystem.DTOs.DepartmentTotalWorkloadDTO>
+
+<h2>Employees</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Total Workload</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DepartmentTotalWorkloadDTO departmentWorkload in Model)
+        {
+            <tr>
+                <td>@departmentWorkload.DepartmentName</td>
+				<td>@departmentWorkload.TotalHours</td>
+            </tr>
+        }
+    </tbody>
+</table>
