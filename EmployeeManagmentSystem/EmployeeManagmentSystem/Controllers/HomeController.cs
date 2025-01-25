@@ -52,7 +52,10 @@ public class HomeController : Controller
 		// IEnumerable<ProjectWithEmployeesWorkloadDTO> results = mProjectDbHandler.GetProjectsWithContributorsEmployees();
 		
 		// Find employees who are not assigned to any project.
-		IEnumerable<EmployeeDTO> results = mEmployeeDbHandler.ListEmployeesWithoutProjects();
+		// IEnumerable<EmployeeDTO> results = mEmployeeDbHandler.ListEmployeesWithoutProjects();
+		
+		// For each department, list the names of employees, their projects, and hours worked. Sort by department name and employee name.
+		IEnumerable<DepartmentToEmployeesInfoDTO> results = mDepartmentDbHandler.GetEmployeesInfoByDepartment();
 
 		ViewData["Results"] = results;
 		return View();

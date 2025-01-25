@@ -4,6 +4,7 @@ using EmployeeManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagmentSystem.Migrations
 {
     [DbContext(typeof(EmployeeManagementContext))]
-    partial class EmployeeManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20250125103205_UpdateModelsWithRefferenceModels")]
+    partial class UpdateModelsWithRefferenceModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,6 +75,9 @@ namespace EmployeeManagmentSystem.Migrations
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("EmployeeModelId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -79,6 +85,8 @@ namespace EmployeeManagmentSystem.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("EmployeeId", "ProjectId");
+
+                    b.HasIndex("EmployeeModelId");
 
                     b.HasIndex("ProjectId");
 
@@ -115,19 +123,15 @@ namespace EmployeeManagmentSystem.Migrations
 
             modelBuilder.Entity("EmployeeManagementSystem.Models.EmployeeProjectModel", b =>
                 {
-                    b.HasOne("EmployeeManagementSystem.Models.EmployeeModel", "Employee")
+                    b.HasOne("EmployeeManagementSystem.Models.EmployeeModel", null)
                         .WithMany("EmployeeProjects")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeModelId");
 
                     b.HasOne("EmployeeManagementSystem.Models.ProjectModel", "Project")
-                        .WithMany("EmployeeProjectModel")
+                        .WithMany()
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Employee");
 
                     b.Navigation("Project");
                 });
@@ -140,11 +144,6 @@ namespace EmployeeManagmentSystem.Migrations
             modelBuilder.Entity("EmployeeManagementSystem.Models.EmployeeModel", b =>
                 {
                     b.Navigation("EmployeeProjects");
-                });
-
-            modelBuilder.Entity("EmployeeManagementSystem.Models.ProjectModel", b =>
-                {
-                    b.Navigation("EmployeeProjectModel");
                 });
 #pragma warning restore 612, 618
         }

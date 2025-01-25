@@ -11,4 +11,6 @@ public class EmployeeModel
 	public required int DepartmentId { get; init; }
 
 	public DepartmentModel Department { get; set; } = null!;
+
+	public ICollection<EmployeeProjectModel> EmployeeProjects { get; set; } = null!;
 }

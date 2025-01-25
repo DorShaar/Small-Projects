@@ -12,6 +12,10 @@ public class EmployeeProjectModel
 	
 	public required DateTime EndDate { get; init; }
 
+	public ProjectModel Project { get; init; } = null!;
+	
+	public EmployeeModel Employee { get; set; } = null!;
+
 	public int CalculateTotalWorkLoad()
 	{
 		return Enumerable

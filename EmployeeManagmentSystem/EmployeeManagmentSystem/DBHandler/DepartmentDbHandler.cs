@@ -2,6 +2,7 @@
 using EmployeeManagementSystem.Models;
 using EmployeeManagmentSystem.DTOs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace EmployeeManagmentSystem.DBHandler;
 
@@ -58,18 +59,45 @@ public class DepartmentDbHandler : DbHandlerBase
 		// return totalWorkloads;
 		
 		return mContext.Departments
-					   .Select(department => new DepartmentTotalWorkloadDTO
+                                 					   .Select(department => new DepartmentTotalWorkloadDTO
+                                 					   {
+                                 						   DepartmentName = department.Name,
+                                 						   TotalHours = mContext.EmployeeProjects
+                                 												.Where(employeeProject => department.Employees
+                                 																					.Select(employee => employee.Id)
+                                 																					.Contains(employeeProject.EmployeeId))
+                                 												.Sum(employeeProject =>
+                                 														 (EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) * 8          // Assume 8-hour workdays
+                                 														 - ((EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) / 7) * 16 // Subtract weekends
+                                 													)
+                                 					   })
+                                 					   .ToList();
+	}
+	
+	/// <summary>
+	/// For each department, list the names of employees, their projects, and hours worked. Sort by department name and employee name.
+	/// </summary>
+	public IEnumerable<DepartmentToEmployeesInfoDTO> GetEmployeesInfoByDepartment()
+	{
+		return mContext.Departments
+					   .Include(department => department.Employees)
+					   .ThenInclude(employee => employee.EmployeeProjects)
+					   .ThenInclude(employeeProject => employeeProject.Project)
+					   .Select(department => new DepartmentToEmployeesInfoDTO
 					   {
 						   DepartmentName = department.Name,
-						   TotalHours = mContext.EmployeeProjects
-												.Where(employeeProject => department.Employees
-																					.Select(employee => employee.Id)
-																					.Contains(employeeProject.EmployeeId))
-												.Sum(employeeProject =>
-														 (EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) * 8          // Assume 8-hour workdays
-														 - ((EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) / 7) * 16 // Subtract weekends
-													)
+						   EmployeesInfo = department.Employees.Select(employee => new EmployeeInfoDTO
+						   {
+							   Name = employee.Name,
+							   ProjectsInfo = employee.EmployeeProjects.Select(employeeProject => new ProjectTotalWorkloadDTO
+							   {
+								   ProjectName = employeeProject.Project.Name,
+								   TotalHours = (EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) * 8          // Assume 8-hour workdays
+												- ((EF.Functions.DateDiffDay(employeeProject.StartDate, employeeProject.EndDate) + 1) / 7) * 16 // Subtract weekends
+							   }) 
+						   })
 					   })
+					   .OrderBy(department => department.DepartmentName)
 					   .ToList();
 	}
 }

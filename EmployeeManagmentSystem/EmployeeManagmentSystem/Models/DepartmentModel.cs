@@ -6,5 +6,5 @@ public class DepartmentModel
 
 	public required string Name { get; init; }
 
-	public IEnumerable<EmployeeModel> Employees { get; set; } = null!;
+	public ICollection<EmployeeModel> Employees { get; set; } = null!;
 }

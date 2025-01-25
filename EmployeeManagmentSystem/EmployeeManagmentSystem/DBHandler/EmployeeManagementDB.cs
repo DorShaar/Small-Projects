@@ -1,15 +1,9 @@
-﻿using EmployeeManagementSystem.Data;
-using EmployeeManagementSystem.Models;
-
-namespace EmployeeManagmentSystem.DBHandler;
+﻿namespace EmployeeManagmentSystem.DBHandler;
 
 public class EmployeeManagementDB
 {
 	/* TODO DOR implement and delete that class at the end.
 	 
-
-Complex Join
-For each department, list the names of employees, their projects, and hours worked. Sort by department name and employee name.
 
 * Write a query to find departments where the average tenure of employees is more than 3 years.
 * Identify projects that have employees from more than 3 departments.

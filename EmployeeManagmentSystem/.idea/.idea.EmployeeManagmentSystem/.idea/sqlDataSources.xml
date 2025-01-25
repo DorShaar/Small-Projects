@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="84b2a5ca-1123-4f23-b7fb-8ce617f2ef65" name="Microsoft SQL Server (JetBrains) Mapping">
+      <data-sources db="4fe7ae64-90a6-4d06-ac7d-de080e438da5" />
+      <scope>
+        <node kind="database" qname="EmployeeManagement">
+          <node kind="schema" qname="@" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>
