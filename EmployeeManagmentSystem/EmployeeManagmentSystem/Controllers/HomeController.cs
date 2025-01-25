@@ -49,13 +49,15 @@ public class HomeController : Controller
 		// IEnumerable<ProjectTotalWorkloadDTO> results = mProjectDbHandler.ListTopThreeHighestWorkloadProjects();
 		
 		// For each project, list employees who worked on it, along with the hours they contributed.
-		// IEnumerable<ProjectWithEmployeesWorkloadDTO> results = mProjectDbHandler.GetProjectsWithContributorsEmployees();
+		Stopwatch stopwatch = Stopwatch.StartNew();
+		IEnumerable<ProjectWithEmployeesWorkloadDTO> results = mProjectDbHandler.GetProjectsWithContributorsEmployees();
+		stopwatch.Stop();
 		
 		// Find employees who are not assigned to any project.
 		// IEnumerable<EmployeeDTO> results = mEmployeeDbHandler.ListEmployeesWithoutProjects();
 		
 		// For each department, list the names of employees, their projects, and hours worked. Sort by department name and employee name.
-		IEnumerable<DepartmentToEmployeesInfoDTO> results = mDepartmentDbHandler.GetEmployeesInfoByDepartment();
+		// IEnumerable<DepartmentToEmployeesInfoDTO> results = mDepartmentDbHandler.GetEmployeesInfoByDepartment();
 
 		ViewData["Results"] = results;
 		return View();

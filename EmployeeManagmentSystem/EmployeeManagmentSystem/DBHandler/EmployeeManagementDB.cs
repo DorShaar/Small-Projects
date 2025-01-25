@@ -13,8 +13,5 @@ List the top 5 employees who worked the longest duration on a single project, ba
 
 Active Projects
 Find projects that are currently active (i.e., the current date is between StartDate and EndDate).
-
-Total Work Hours Per Month
-For each project, calculate the total work hours per month, considering all employee contributions
 	 */
 }

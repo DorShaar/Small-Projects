@@ -11,23 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf0ac06-349a-4d9a-bbf2-a4aa070caf0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/DepartmentToEmployeesInfoDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DTOs/EmployeeInfoDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources/4fe7ae64-90a6-4d06-ac7d-de080e438da5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/dataSources/4fe7ae64-90a6-4d06-ac7d-de080e438da5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagementSystem/EmployeeManagementSystem.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagementSystem/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/DepartmentDbHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/DepartmentDbHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/EmployeeManagementDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Migrations/EmployeeManagementContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Migrations/EmployeeManagementContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/DepartmentModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/DepartmentModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeProjectModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/EmployeeProjectModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/ProjectModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/Models/ProjectModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/ProjectDbHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeManagmentSystem/DBHandler/ProjectDbHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,13 +149,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/EmployeeManagmentSystem/Controllers/HomeController.cs</url>
-          <line>59</line>
+          <line>61</line>
           <properties documentPath="C:\Users\DorShaar\Dor\Personal\Projects\Small-Projects\EmployeeManagmentSystem\EmployeeManagmentSystem\Controllers\HomeController.cs" containingFunctionPresentation="Method 'Index'">
             <startOffsets>
-              <option value="2430" />
+              <option value="2496" />
             </startOffsets>
             <endOffsets>
-              <option value="2460" />
+              <option value="2526" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
