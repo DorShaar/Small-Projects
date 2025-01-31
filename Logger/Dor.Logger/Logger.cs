@@ -6,13 +6,13 @@ using Logger.Options;
 namespace Logger;
 
 // TODO DOR - read from configuraion the default log level and the log type (file, type)
-// TODO DOR - make it roll
-// TODO DOR - make it thread safe
 public class Logger<T> : ILogger
 {
 	private readonly ILogStrategy mLogStrategy;
 	private readonly LoggerOptions mLoggerOptions;
-	private readonly ConcurrentDictionary<string, LogMessage> mLogMessages;
+	private readonly ConcurrentDictionary<string, LogMessage> mLogMessages = new();
+	private readonly SemaphoreSlim mPublishLogsLock = new(1, 1); // TODO DOR - make it thread safe
+	private string? mCorrelationId;
 
 	public Logger(ILogStrategy logStrategy, LoggerOptions loggerOptions)
 	{
@@ -22,7 +22,12 @@ public class Logger<T> : ILogger
 	
 	public Task Log(LogLevel logLevel, string message, Exception? ex = null)
 	{
-		sss
+		LogMessage logMessage = new()
+		{
+			Message = message,
+			CorrelationId = 
+		}
+		mLogMessages.AddOrUpdate()
 	}
 
 	public async Task Flush()
@@ -33,6 +38,7 @@ public class Logger<T> : ILogger
 	public void Dispose()
 	{
 		Flush().Wait();
+		mPublishLogsLock.Dispose();
 	}
 
 	private async Task PublishLogs()
