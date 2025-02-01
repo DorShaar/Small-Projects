@@ -1,8 +1,10 @@
-﻿using Logger.Enums;
+﻿using Logger.Models;
 
 namespace Logger;
 
 public interface ILogStrategy
 {
-	Task Log(LogLevel logLevel, string message, Exception? ex = null);
+	Task Log(LogMessage logMessage);
+	
+	Task Log(IEnumerable<LogMessage> logMessages);
 }

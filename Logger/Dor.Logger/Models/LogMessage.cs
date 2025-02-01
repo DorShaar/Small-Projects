@@ -6,7 +6,7 @@ public class LogMessage
 {
 	public static string DateTimeFormat { get; set; } = "MM/dd/yyyy HH:mm:ss.fff";
 
-	public required string MessageId { get; init; } = Guid.NewGuid().ToString();
+	public string MessageId { get; } = Guid.NewGuid().ToString();
 
 	public string? CorrelationId { get; init; }
 	
@@ -17,6 +17,8 @@ public class LogMessage
 	public required string Message { get; init; }
 
 	public string? ErrorMessage { get; init; }
+	
+	public required string LoggerId { get; init; }
 	
 	public required string LogWriterName { get; init; }
 	
