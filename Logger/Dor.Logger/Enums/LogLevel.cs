@@ -5,7 +5,7 @@ public enum LogLevel
 	Trace,
 	Debug,
 	Warning,
-	Info,
+	Information,
 	Error,
 	Fatal
 }
