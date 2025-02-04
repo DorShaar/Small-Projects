@@ -12,7 +12,7 @@ public class Logger<T> : ILogger
 	private readonly IOptionsMonitor<LoggerOptions> mLoggerOptions;
 	private readonly ConcurrentQueue<LogMessage> mLogMessages = new();
 	private readonly SemaphoreSlim mLogsLock = new (1, 1);
-	private readonly string mLoggerId = Guid.NewGuid().ToString();
+    private readonly string mLoggerId = Guid.NewGuid().ToString();
 
 	public Logger(ILogStrategy logStrategy, IOptionsMonitor<LoggerOptions> loggerOptions)
 	{
@@ -20,42 +20,40 @@ public class Logger<T> : ILogger
 		mLoggerOptions = loggerOptions ?? throw new NullReferenceException($"{nameof(loggerOptions)} is not initialized");
 	}
 	
-	public async Task Log(LogLevel logLevel, string message, Exception? ex = null)
+	public async Task Log(LogLevel logLevel, string message, Exception? exception = null)
 	{
 		if (logLevel < mLoggerOptions.CurrentValue.LogLevel)
 		{
 			return;
 		}
-			
-		LogMessage logMessage = new()
-		{
-			Message = message,
-			ErrorMessage = ex?.Message,
-			LogLevel = logLevel,
-			LoggerId = mLoggerId,
-			LogWriterName = typeof(T).FullName ?? "Unknown"
-		};
+
+        try
+        {
+            LogMessage logMessage = new()
+			{
+				Message = message,
+				ErrorMessage = exception?.Message,
+				LogLevel = logLevel,
+				LoggerId = mLoggerId,
+				LogWriterName = typeof(T).FullName ?? "Unknown"
+			};
 		
-		try
-		{
-			await mLogsLock.WaitAsync();
-			
 			if (mLogMessages.Count >= mLoggerOptions.CurrentValue.LogsBulkSize)
 			{
-				await PublishLogsAndClearBuffer().ConfigureAwait(false);
+				await PublishLogsAndClearBuffer();
 			}
 
 			mLogMessages.Enqueue(logMessage);
 		}
-		finally
+		catch (Exception ex)
 		{
-			mLogsLock.Release();
+			// Do some error handling.
 		}
 	}
 
 	public async Task Flush()
 	{
-		await PublishLogsAndClearBuffer().ConfigureAwait(false);
+		await PublishLogsAndClearBuffer();
 	}
 
 	public void Dispose()
@@ -76,7 +74,7 @@ public class Logger<T> : ILogger
 			
 			if (mLogMessages.Count == 1)
 			{
-				await mLogStrategy.Log(mLogMessages.First()).ConfigureAwait(false);
+				await mLogStrategy.Log(mLogMessages.First());
 				return;
 			}
 
@@ -88,7 +86,7 @@ public class Logger<T> : ILogger
 					continue;
 				}
 				
-				await mLogStrategy.Log(message).ConfigureAwait(false);
+				await mLogStrategy.Log(message);
 			}
 
 			mLogMessages.Clear();

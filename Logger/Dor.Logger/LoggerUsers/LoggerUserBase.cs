@@ -15,9 +15,9 @@ public abstract class LoggerUserBase
 	{
 		for (int i = 0; i < logsCount; ++i)
 		{
-			await mLogger.Debug($"message number {i}").ConfigureAwait(false);
+			await mLogger.Debug($"message number {i}");
 		}
 		
-		await mLogger.Info($"Done writing {logsCount} logs").ConfigureAwait(false);
+		await mLogger.Info($"Done writing {logsCount} logs");
 	}
 }

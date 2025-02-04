@@ -25,7 +25,7 @@ class Program
             return;
         }
 
-        Dictionary<string, LogMessage> x = memoryLogStrategy.Logs;
+        var x = memoryLogStrategy.Logs.Values.ToList();
     }
 
     private static IHostBuilder CreateHostBuilder(string[] args)
