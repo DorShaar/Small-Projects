@@ -5,6 +5,11 @@ namespace Kafka_Usages;
 
 public class MessagesProducerFactory(ILogger<MessagesProducerFactory> logger) : IMessagesProducerFactory
 {
+	/// <summary>
+	/// Created the producer and initialize it for using transactions.
+	/// </summary>
+	/// <param name="connectionConfig"></param>
+	/// <returns></returns>
 	public IProducer<string, string> CreateProducer(KafkaConnectionInfo connectionConfig)
 	{
 		ProducerConfig producerConfig = createProducerConfig(connectionConfig);
