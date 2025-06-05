@@ -1,0 +1,5 @@
+docker-compose restart logstash
+
+curl -X DELETE http://localhost:9201/parsed-logs
+
+curl -X PUT "http://localhost:9200/_cluster/settings" -H "Content-Type: application/json" -d "{\"persistent\": { \"search.max_async_search_response_size\": \"150mb\"}}"

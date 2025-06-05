@@ -1,0 +1,38 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    container_name: elasticsearch-logs
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - 9201:9200
+    networks:
+      - logs
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.13.4
+    container_name: kibana-logs
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5602:5601
+    depends_on:
+      - elasticsearch
+    networks:
+      - logs
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.13.4
+    container_name: logstash-logs
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/logs/:/usr/share/logstash/logs/:ro
+    depends_on:
+      - elasticsearch
+    networks:
+      - logs
+
+networks:
+  logs:
+    driver: bridge

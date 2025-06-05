@@ -351,3 +351,5 @@ MigrationBackup/
 
 **/bin/
 **/obj/
+
+**/.idea/
